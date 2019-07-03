@@ -1,4 +1,4 @@
-from ubuntu:latest
+FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y \
     python \
@@ -12,9 +12,7 @@ RUN apt-get update && apt-get install -y \
     libcairo2  \
     swig \
     libbz2-dev \
-    libcfitsio-dev && \
-
-    apt-get install -y --no-install-recommends \
+    libcfitsio-dev \
     make \
     build-essential \
     wget && \
