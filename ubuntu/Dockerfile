@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y \
     #
     pip install --no-cache-dir numpy astropy && \
     #
-    wget http://astrometry.net/downloads/astrometry.net-0.78.tar.gz && \
-    tar xvzf astrometry.net-0.78.tar.gz && \
+    wget http://astrometry.net/downloads/astrometry.net-0.76.tar.gz && \
+    tar xvzf astrometry.net-0.76.tar.gz && \
     cd astrometry.net-* && \
     export INSTALL_DIR="/" && \
     sed -i 's/-march=native/-march=x86-64/g' util/makefile.common && \
