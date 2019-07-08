@@ -23,7 +23,7 @@ RUN apt-get update && apt-get install -y \
     tar xvzf astrometry.net-0.78.tar.gz && \
     cd astrometry.net-* && \
     export INSTALL_DIR="/" && \
-    export OPTIMIZE=no && \
+    sed -i 's/-march=native/-march=x86-64/g' util/makefile.common && \
     make && make extra && make install && \
 
     cd .. && rm -rf astrometry.net* && \
