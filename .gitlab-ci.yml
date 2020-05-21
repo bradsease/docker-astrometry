@@ -1,4 +1,3 @@
-image: docker:latest
 
 variables:
     VERSION: latest
@@ -7,7 +6,10 @@ stages:
   - build
 
 build:
+  image: docker:latest
   stage: build
+  services:
+    - docker:dind
   script:
     - docker info
     - cd ubuntu
