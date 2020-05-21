@@ -14,3 +14,7 @@ build:
     - docker info
     - cd ubuntu
     - docker build -t bsease/astrometry:$VERSION .
+    - echo $DOCKER_HUB_TOKEN > token.txt
+    - cat token.txt | docker login --username bsease --password-stdin
+    - rm token.txt
+    - docker push bsease/astrometry:$VERSION
