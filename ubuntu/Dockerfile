@@ -21,6 +21,8 @@ RUN export TZ=America/New_York && \
     build-essential \
     wget && \
     #
+    ln -s /usr/bin/python3 /usr/bin/python && \
+    #
     pip3 install --no-cache-dir numpy astropy && \
     #
     wget http://astrometry.net/downloads/astrometry.net-${VERSION}.tar.gz && \
