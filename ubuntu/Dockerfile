@@ -1,8 +1,12 @@
 FROM ubuntu:latest
 
-RUN apt-get update && apt-get install -y \
-    python \
-    python-pip \
+ARG VERSION=0.78
+
+RUN export TZ=America/New_York && \
+    export DEBIAN_FRONTEND="noninteractive" && \
+    apt-get update && apt-get install -y \
+    python3 \
+    python3-pip \
     zlib1g-dev \
     netpbm \
     libnetpbm10-dev \
@@ -17,10 +21,10 @@ RUN apt-get update && apt-get install -y \
     build-essential \
     wget && \
     #
-    pip install --no-cache-dir numpy astropy && \
+    pip3 install --no-cache-dir numpy astropy && \
     #
-    wget http://astrometry.net/downloads/astrometry.net-0.78.tar.gz && \
-    tar xvzf astrometry.net-0.78.tar.gz && \
+    wget http://astrometry.net/downloads/astrometry.net-${VERSION}.tar.gz && \
+    tar xvzf astrometry.net-${VERSION}.tar.gz && \
     cd astrometry.net-* && \
     export INSTALL_DIR="/" && \
     sed -i 's/-march=native/-march=x86-64/g' util/makefile.common && \
