@@ -1,0 +1,13 @@
+image: docker:latest
+
+variables:
+    VERSION: latest
+
+stages:
+  - build
+
+build:
+  stage: test
+  script:
+    - docker info
+    - docker build -t bsease/astrometry:$VERSION .
