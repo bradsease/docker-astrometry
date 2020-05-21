@@ -7,7 +7,8 @@ stages:
   - build
 
 build:
-  stage: test
+  stage: build
   script:
     - docker info
+    - cd ubuntu
     - docker build -t bsease/astrometry:$VERSION .
