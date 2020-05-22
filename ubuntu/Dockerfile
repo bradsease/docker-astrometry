@@ -17,6 +17,7 @@ RUN export TZ=America/New_York && \
     swig \
     libbz2-dev \
     libcfitsio-dev \
+    sextractor \
     make \
     build-essential \
     wget && \
@@ -41,3 +42,7 @@ RUN export TZ=America/New_York && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /examples && \
     rm /data/index-4112.fits
+
+WORKDIR /work
+
+ENTRYPOINT [ "solve-field" ]
